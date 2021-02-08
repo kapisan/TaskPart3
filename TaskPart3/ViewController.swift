@@ -20,21 +20,13 @@ class ViewController: UIViewController {
     var conversion1: Int? = nil
     var conversion2: Int? = nil
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
-    }
-
     @IBAction func changeSwitch1(_ sender: UISwitch) {
         if mySwitch1.isOn == true {
-            print("-")
             let textFieldValue1 = Int(textField1.text!) ?? 0
             conversion1 = -(textFieldValue1)
             textField1.text = String(conversion1!)
             label1.text = String(conversion1!)
         } else {
-            print("+")
             let textFieldValue1 = Int(textField1.text!) ?? 0
             conversion1 = abs(textFieldValue1)
             textField1.text = String(conversion1!)
@@ -44,13 +36,11 @@ class ViewController: UIViewController {
 
     @IBAction func changeSwitch2(_ sender: UISwitch) {
         if mySwitch2.isOn == true {
-            print("-")
             let textFieldValue2 = Int(textField2.text!) ?? 0
             conversion2 = -(textFieldValue2)
             textField2.text = String(conversion2!)
             label2.text = String(conversion2!)
         } else {
-            print("+")
             let textFieldValue2 = Int(textField2.text!) ?? 0
             conversion2 = abs(textFieldValue2)
             textField2.text = String(conversion2!)
@@ -71,4 +61,3 @@ class ViewController: UIViewController {
         totalLabel.text = String(total)
     }
 }
-
