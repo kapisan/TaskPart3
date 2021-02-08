@@ -17,25 +17,28 @@ class ViewController: UIViewController {
     @IBOutlet private weak var label2: UILabel!
     @IBOutlet private weak var totalLabel: UILabel!
 
+    var conversion1: Int? = nil
+    var conversion2: Int? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
     }
 
     @IBAction func changeSwitch1(_ sender: UISwitch) {
         if mySwitch1.isOn == true {
             print("-")
             let textFieldValue1 = Int(textField1.text!) ?? 0
-            let conversion = -(textFieldValue1)
-            textField1.text = String(conversion)
-            label1.text = String(conversion)
+            conversion1 = -(textFieldValue1)
+            textField1.text = String(conversion1!)
+            label1.text = String(conversion1!)
         } else {
             print("+")
             let textFieldValue1 = Int(textField1.text!) ?? 0
-            let conversion = abs(textFieldValue1)
-            textField1.text = String(conversion)
-            label1.text = String(conversion)
+            conversion1 = abs(textFieldValue1)
+            textField1.text = String(conversion1!)
+            label1.text = String(conversion1!)
         }
     }
 
@@ -43,16 +46,29 @@ class ViewController: UIViewController {
         if mySwitch2.isOn == true {
             print("-")
             let textFieldValue2 = Int(textField2.text!) ?? 0
-            let conversion = -(textFieldValue2)
-            textField2.text = String(conversion)
-            label2.text = String(conversion)
+            conversion2 = -(textFieldValue2)
+            textField2.text = String(conversion2!)
+            label2.text = String(conversion2!)
         } else {
             print("+")
             let textFieldValue2 = Int(textField2.text!) ?? 0
-            let conversion = abs(textFieldValue2)
-            textField2.text = String(conversion)
-            label2.text = String(conversion)
+            conversion2 = abs(textFieldValue2)
+            textField2.text = String(conversion2!)
+            label2.text = String(conversion2!)
         }
+    }
+
+    @IBAction func button(_ sender: UIButton) {
+        let textFieldValue1 = Int(textField1.text!) ?? 0
+        let textFieldValue2 = Int(textField2.text!) ?? 0
+
+        conversion1 = textFieldValue1
+        conversion2 = textFieldValue2
+
+        label1.text = String(conversion1!)
+        label2.text = String(conversion2!)
+        let total = conversion1! + conversion2!
+        totalLabel.text = String(total)
     }
 }
 
