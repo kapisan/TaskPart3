@@ -17,47 +17,33 @@ class ViewController: UIViewController {
     @IBOutlet private weak var label2: UILabel!
     @IBOutlet private weak var totalLabel: UILabel!
 
-    var conversion1: Int?
-    var conversion2: Int?
+    @IBAction func button(_ sender: UIButton) {
+        let conversion1: Int
 
-    @IBAction func changeSwitch1(_ sender: UISwitch) {
-        if mySwitch1.isOn == true {
+        if mySwitch1.isOn {
             let textFieldValue1 = Int(textField1.text!) ?? 0
             conversion1 = -(textFieldValue1)
-            textField1.text = String(conversion1!)
-            label1.text = String(conversion1!)
         } else {
             let textFieldValue1 = Int(textField1.text!) ?? 0
-            conversion1 = abs(textFieldValue1)
-            textField1.text = String(conversion1!)
-            label1.text = String(conversion1!)
+            conversion1 = textFieldValue1
         }
-    }
 
-    @IBAction func changeSwitch2(_ sender: UISwitch) {
-        if mySwitch2.isOn == true {
+        label1.text = String(conversion1)
+
+        let conversion2: Int
+
+        if mySwitch2.isOn {
             let textFieldValue2 = Int(textField2.text!) ?? 0
             conversion2 = -(textFieldValue2)
-            textField2.text = String(conversion2!)
-            label2.text = String(conversion2!)
         } else {
             let textFieldValue2 = Int(textField2.text!) ?? 0
-            conversion2 = abs(textFieldValue2)
-            textField2.text = String(conversion2!)
-            label2.text = String(conversion2!)
+            conversion2 = textFieldValue2
         }
-    }
 
-    @IBAction func button(_ sender: UIButton) {
-        let textFieldValue1 = Int(textField1.text!) ?? 0
-        let textFieldValue2 = Int(textField2.text!) ?? 0
+        textField2.text = String(conversion2)
+        label2.text = String(conversion2)
 
-        conversion1 = textFieldValue1
-        conversion2 = textFieldValue2
-
-        label1.text = String(conversion1!)
-        label2.text = String(conversion2!)
-        let total = conversion1! + conversion2!
+        let total = conversion1 + conversion2
         totalLabel.text = String(total)
     }
 }
