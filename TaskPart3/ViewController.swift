@@ -17,8 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet private weak var label2: UILabel!
     @IBOutlet private weak var totalLabel: UILabel!
 
-    var conversion1: Int? = nil
-    var conversion2: Int? = nil
+    var conversion1: Int?
+    var conversion2: Int?
 
     @IBAction func changeSwitch1(_ sender: UISwitch) {
         if mySwitch1.isOn == true {
